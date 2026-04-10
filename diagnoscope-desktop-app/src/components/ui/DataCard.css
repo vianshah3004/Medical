@@ -1,0 +1,135 @@
+/* ── Extreme Reference Match DataCard ── */
+.data-card {
+  position: relative;
+  background: rgba(0, 5, 8, 0.8) !important;
+  border: 1px solid rgba(0, 240, 255, 0.4) !important;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 2rem;
+  overflow: visible !important;
+}
+
+/* 4 Corner L-Brackets expanding outside the box */
+.data-card__brackets {
+  position: absolute;
+  top: -6px; left: -6px; right: -6px; bottom: -6px;
+  pointer-events: none;
+  background:
+    /* Top Left */
+    linear-gradient(to right, var(--primary) 16px, transparent 16px) 0 0,
+    linear-gradient(to bottom, var(--primary) 16px, transparent 16px) 0 0,
+    /* Top Right */
+    linear-gradient(to left, var(--primary) 16px, transparent 16px) 100% 0,
+    linear-gradient(to bottom, var(--primary) 16px, transparent 16px) 100% 0,
+    /* Bottom Left */
+    linear-gradient(to right, var(--primary) 16px, transparent 16px) 0 100%,
+    linear-gradient(to top, var(--primary) 16px, transparent 16px) 0 100%,
+    /* Bottom Right */
+    linear-gradient(to left, var(--primary) 16px, transparent 16px) 100% 100%,
+    linear-gradient(to top, var(--primary) 16px, transparent 16px) 100% 100%;
+  background-size: 16px 2px, 2px 16px;
+  background-repeat: no-repeat;
+  z-index: 20;
+}
+
+/* The Solid Title Tab perfectly flush with the top left */
+.data-card__tab {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  height: 30px;
+  display: flex;
+  align-items: stretch;
+  color: var(--primary-container);
+  z-index: 10;
+  /* Add subtle glow */
+  box-shadow: 2px 2px 10px rgba(0, 240, 255, 0.1);
+}
+
+.data-card__tab-inner {
+  background: var(--primary); /* Cyan fill */
+  background: rgba(0, 240, 255, 0.15);
+  border: 1px solid var(--primary);
+  border-right: none;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 8px;
+}
+
+.data-card--active .data-card__tab-inner {
+  background: var(--primary);
+}
+.data-card--alert .data-card__tab-inner {
+  background: rgba(255, 106, 0, 0.2);
+  border-color: var(--accent-orange);
+}
+.data-card--active .data-card__tab-title,
+.data-card--active .data-card__tab-icon {
+  color: #000 !important;
+  font-weight: 700;
+}
+
+.data-card__tab-icon {
+  font-size: 16px !important;
+  color: var(--primary);
+}
+
+.data-card__tab-title {
+  color: var(--primary);
+  margin: 0;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* SVG polygon angle component */
+.data-card__tab-angle {
+  width: 20px;
+  height: 100%;
+  color: rgba(0, 240, 255, 0.15); /* Match background */
+  fill: currentColor;
+  stroke: var(--primary);
+  stroke-width: 1px;
+}
+/* Note: Since we are drawing SVG angle we need to mask out stroke overlap, but this is acceptable for now */
+
+.data-card__body {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-mono);
+}
+
+/* Orange alert variant corners */
+.data-card--alert .data-card__brackets {
+  background:
+    linear-gradient(to right, var(--accent-orange) 16px, transparent 16px) 0 0,
+    linear-gradient(to bottom, var(--accent-orange) 16px, transparent 16px) 0 0,
+    linear-gradient(to left, var(--accent-orange) 16px, transparent 16px) 100% 0,
+    linear-gradient(to bottom, var(--accent-orange) 16px, transparent 16px) 100% 0,
+    linear-gradient(to right, var(--accent-orange) 16px, transparent 16px) 0 100%,
+    linear-gradient(to top, var(--accent-orange) 16px, transparent 16px) 0 100%,
+    linear-gradient(to left, var(--accent-orange) 16px, transparent 16px) 100% 100%,
+    linear-gradient(to top, var(--accent-orange) 16px, transparent 16px) 100% 100%;
+  background-size: 16px 2px, 2px 16px;
+  background-repeat: no-repeat;
+}
+.data-card--alert {
+  border-color: rgba(255, 106, 0, 0.4) !important;
+}
+
+/* Scan line */
+.data-card__scan-line {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+  opacity: 0.8;
+  z-index: 9;
+  animation: scan 4s linear infinite;
+}
+@keyframes scan {
+  from { top: 0%; }
+  to { top: 100%; }
+}

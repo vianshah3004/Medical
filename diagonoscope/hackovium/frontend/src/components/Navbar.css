@@ -1,0 +1,263 @@
+/* Navbar.css */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #000000;
+    /* Pure Black Default */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 0;
+    transition: background-color 0.3s ease;
+}
+
+/* --- LIGHT MODE NAVBAR: clean white --- */
+[data-theme="light"] .navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid #e0e4ea !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.logo-icon {
+    color: #ffffff !important;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    /* Pure White */
+    background: none;
+    /* Remove gradient text if needed for pure white visibility */
+    -webkit-text-fill-color: #ffffff !important;
+    letter-spacing: -0.5px;
+}
+
+/* Light Mode: dark logo text */
+[data-theme="light"] .logo-text {
+    color: #1a1a2e !important;
+    -webkit-text-fill-color: #1a1a2e !important;
+    background: none !important;
+}
+[data-theme="light"] .logo-icon { color: #0077b6 !important; }
+
+.nav-links.desktop {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff !important;
+    /* Pure White */
+}
+
+/* Light mode: dark nav links */
+[data-theme="light"] .nav-link {
+    color: #374151 !important;
+}
+[data-theme="light"] .nav-link:hover,
+[data-theme="light"] .nav-link.active {
+    color: #0077b6 !important;
+}
+
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+/* User Badge Style */
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+/* Light mode user badge: dark text */
+[data-theme="light"] .user-badge {
+    background: rgba(0, 119, 182, 0.08);
+    border: 1px solid rgba(0, 119, 182, 0.2);
+    color: #1a1a2e !important;
+}
+[data-theme="light"] .user-badge svg {
+    color: #0077b6 !important;
+}
+
+/* Logout Button Styles */
+.logout-btn {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.logout-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Toggle in Nav */
+.theme-toggle-nav {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+.theme-toggle-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: scale(1.08);
+}
+[data-theme="light"] .theme-toggle-nav {
+    background: rgba(0, 119, 182, 0.1);
+    border-color: rgba(0, 119, 182, 0.2);
+    color: #0077b6;
+}
+[data-theme="light"] .theme-toggle-nav:hover {
+    background: rgba(0, 119, 182, 0.2);
+    color: #005a8d;
+}
+
+/* Light mode logout button: dark */
+[data-theme="light"] .logout-btn {
+    color: #374151 !important;
+}
+[data-theme="light"] .logout-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #0077b6 !important;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+/* Light mode mobile toggle */
+[data-theme="light"] .mobile-toggle {
+    color: #1a1a2e !important;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .nav-links.desktop,
+    .nav-actions.desktop {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #000000;
+        /* Pure Black mobile menu */
+        padding: 20px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="light"] .mobile-menu {
+        background: #ffffff !important;
+        border-bottom: 1px solid #e0e4ea;
+    }
+
+    .mobile-link {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    [data-theme="light"] .mobile-link {
+        color: #374151 !important;
+        border-bottom-color: #f0f2f5 !important;
+    }
+
+    [data-theme="light"] .mobile-link:hover {
+        color: #0077b6 !important;
+    }
+}

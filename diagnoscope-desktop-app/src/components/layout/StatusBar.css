@@ -1,0 +1,88 @@
+/* ═══════════════════════════════════════════════
+   StatusBar — System Footer / Ticker
+   ═══════════════════════════════════════════════ */
+
+.statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 28px;
+  padding: 0 var(--space-4);
+  background: var(--surface-container-lowest);
+  border-top: 0.5px solid var(--outline-variant);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--on-surface-variant);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  overflow: hidden;
+  gap: var(--space-4);
+}
+
+.statusbar__left,
+.statusbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.statusbar__center {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.statusbar__ticker {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.statusbar__ticker-text {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+  color: var(--on-surface-variant);
+  opacity: 0.4;
+}
+
+.statusbar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  opacity: 0.6;
+}
+
+.statusbar__dot {
+  width: 5px;
+  height: 5px;
+  flex-shrink: 0;
+}
+
+.statusbar__dot--ok {
+  background: var(--color-stable);
+  box-shadow: 0 0 4px var(--color-stable);
+}
+
+.statusbar__dot--warn {
+  background: var(--color-pending);
+  box-shadow: 0 0 4px var(--color-pending);
+}
+
+.statusbar__dot--err {
+  background: var(--color-critical);
+  box-shadow: 0 0 4px var(--color-critical);
+}
+
+.statusbar__item--time {
+  color: var(--primary-fixed-dim);
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 768px) {
+  .statusbar__center,
+  .statusbar__left { display: none; }
+}

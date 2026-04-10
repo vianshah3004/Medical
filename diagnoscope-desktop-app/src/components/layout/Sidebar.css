@@ -1,0 +1,199 @@
+/* ═══════════════════════════════════════════════
+   Sidebar — Tactical Navigation Rail
+   ═══════════════════════════════════════════════ */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-container-lowest);
+  border-right: 0.5px solid var(--outline-variant);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: width var(--transition-normal);
+  overflow: hidden;
+}
+
+.sidebar--compact { width: 64px; }
+.sidebar--full    { width: 240px; }
+
+/* ── Brand ── */
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-4);
+  border-bottom: 0.5px solid var(--outline-variant);
+  min-height: 64px;
+}
+
+.sidebar__brand-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-container);
+  flex-shrink: 0;
+}
+
+.sidebar__brand-icon .material-symbols-outlined {
+  font-size: 28px;
+  filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.4));
+}
+
+.sidebar__brand-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar__brand-name {
+  font-family: var(--font-display);
+  font-size: var(--text-label-lg);
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sidebar__brand-version {
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  color: var(--on-surface-variant);
+  letter-spacing: 0.05em;
+}
+
+/* ── Navigation ── */
+.sidebar__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-2);
+  overflow-y: auto;
+}
+
+.sidebar__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3);
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: var(--text-label-md);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar__link:hover {
+  color: var(--primary);
+  background: rgba(0, 240, 255, 0.04);
+}
+
+.sidebar__link-indicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 0;
+  background: var(--primary-container);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+  transition: height var(--transition-fast);
+}
+
+.sidebar__link--active {
+  color: var(--primary);
+  background: rgba(0, 240, 255, 0.06);
+}
+
+.sidebar__link--active .sidebar__link-indicator {
+  height: 60%;
+}
+
+.sidebar__link--active .sidebar__link-icon {
+  filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.4));
+}
+
+.sidebar__link-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: filter var(--transition-fast);
+}
+
+.sidebar__link-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Footer ── */
+.sidebar__footer {
+  border-top: 0.5px solid var(--outline-variant);
+  padding: var(--space-3) var(--space-2);
+}
+
+.sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.sidebar__user-avatar {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-container-high);
+  color: var(--primary-fixed-dim);
+  flex-shrink: 0;
+}
+
+.sidebar__user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar__user-name {
+  font-family: var(--font-display);
+  font-size: var(--text-label-sm);
+  color: var(--primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sidebar__user-role {
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  color: var(--on-surface-variant);
+}
+
+.sidebar__link--logout {
+  color: var(--color-critical);
+  opacity: 0.7;
+}
+.sidebar__link--logout:hover {
+  opacity: 1;
+  background: rgba(255, 59, 59, 0.06);
+  color: var(--color-critical);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .sidebar--full { width: 64px; }
+  .sidebar__link-label,
+  .sidebar__brand-text,
+  .sidebar__user-info { display: none; }
+}

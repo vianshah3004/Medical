@@ -1,0 +1,37 @@
+{
+  "name": "diagnoscope-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Node.js backend for DiagnoScope medical imaging platform",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "seed": "node seed.js",
+    "test": "cross-env NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js --config jest.config.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.103.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.44.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.2",
+    "nodemailer": "^7.0.3",
+    "pg": "^8.16.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "drizzle-kit": "^0.31.0",
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2"
+  }
+}

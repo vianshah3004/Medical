@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+
+*.pth
+*.pt
+
+.venv/
+venv/
+
+generated_reports/
+*.pdf
+
+.vscode/
+
+*.png
+*.jpg
+
+# Env
+.venv/
+venv/
+.env

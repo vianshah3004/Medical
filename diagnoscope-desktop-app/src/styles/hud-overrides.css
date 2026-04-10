@@ -1,0 +1,81 @@
+/* SCI-FI HUD OVERRIDES */
+
+/* Removed the global ::after mask trick because DataCard.css renders exact corner brackets now.
+   Remaining elements like login-page__content will just use standard CSS or be wrapped in DataCard */
+.login-page__content, .dashboard__panel, .directory__sidebar, .directory__main, .inbox__sidebar, .inbox__main {
+  position: relative !important;
+  border: 1px solid rgba(0, 240, 255, 0.4) !important;
+  background: rgba(0, 5, 8, 0.8) !important;
+  box-shadow: inset 0 0 15px rgba(0, 240, 255, 0.02) !important;
+}
+
+/* 3. Button sci-fi overrides */
+.btn, .glow-button, button {
+  background: rgba(0, 240, 255, 0.1) !important;
+  border: 1px solid var(--primary-fixed-dim) !important;
+  color: var(--primary) !important;
+  box-shadow: 0 0 5px rgba(0, 240, 255, 0.2);
+  clip-path: polygon(
+    0 4px,
+    4px 0,
+    100% 0,
+    100% calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    0 100%
+  ) !important;
+  border-radius: 0 !important;
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn:hover:not(:disabled), .glow-button:hover:not(:disabled), button:hover:not(:disabled) {
+  background: rgba(0, 240, 255, 0.3) !important;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5) !important;
+}
+
+/* 4. Typography styling - Brackets */
+.data-card__title {
+  color: var(--primary) !important;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+.data-card__title::before, .hud-title::before {
+  content: "[ ";
+  color: var(--primary-fixed-dim);
+  opacity: 0.8;
+}
+.data-card__title::after, .hud-title::after {
+  content: " ]";
+  color: var(--primary-fixed-dim);
+  opacity: 0.8;
+}
+
+/* 5. App-wide scan lines and darker theme */
+body {
+  background-color: #05070a !important;
+}
+
+body::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+  z-index: 9999;
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+body::before {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px) !important;
+  background-size: 40px 40px !important;
+}
+
+/* Fix active state cards - just glow now */
+.data-card--active {
+  box-shadow: 0 0 15px var(--primary-transparent) !important;
+  border-color: var(--primary) !important;
+}

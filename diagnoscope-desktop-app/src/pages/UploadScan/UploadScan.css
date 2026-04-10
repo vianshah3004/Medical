@@ -1,0 +1,17 @@
+.upload-scan {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.upload-scan__grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .upload-scan__grid {
+    grid-template-columns: 1fr;
+  }
+}

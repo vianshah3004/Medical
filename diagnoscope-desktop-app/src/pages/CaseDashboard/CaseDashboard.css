@@ -1,0 +1,114 @@
+.case-dash {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.case-dash__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.case-dash__title {
+  font-size: var(--text-headline-lg);
+  margin-bottom: var(--space-1);
+}
+
+.case-dash__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+/* ── Table ── */
+.case-dash__table-wrapper {
+  overflow-x: auto;
+}
+
+.case-dash__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+}
+
+.case-dash__table th {
+  font-family: var(--font-display);
+  font-size: var(--text-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  text-align: left;
+  padding: var(--space-3) var(--space-3);
+  border-bottom: 0.5px solid var(--outline-variant);
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.case-dash__table td {
+  padding: var(--space-3) var(--space-3);
+  color: var(--on-surface);
+  white-space: nowrap;
+}
+
+.case-dash__row {
+  transition: background var(--transition-fast);
+}
+
+.case-dash__row:hover {
+  background: rgba(0, 240, 255, 0.02);
+}
+
+.case-dash__row + .case-dash__row {
+  border-top: 0.5px solid rgba(59, 73, 75, 0.08);
+}
+
+.case-dash__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--primary) !important;
+  letter-spacing: 0.04em;
+}
+
+/* ── Operator Log ── */
+.case-dash__log {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.case-dash__log-entry {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.case-dash__log-entry + .case-dash__log-entry {
+  border-top: 0.5px solid rgba(59, 73, 75, 0.08);
+}
+
+.case-dash__log-time {
+  font-family: var(--font-mono);
+  font-size: var(--text-label-sm);
+  color: var(--primary-fixed-dim);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.case-dash__log-msg {
+  font-size: var(--text-body-sm);
+  color: var(--on-surface-variant);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .case-dash__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .case-dash__header {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}

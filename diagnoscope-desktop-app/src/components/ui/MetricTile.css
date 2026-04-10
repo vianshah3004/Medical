@@ -1,0 +1,62 @@
+.metric-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--surface-container);
+  border: 0.5px solid rgba(59, 73, 75, 0.15);
+  min-width: 120px;
+}
+
+.metric-tile--highlight {
+  border-color: rgba(0, 240, 255, 0.15);
+  box-shadow: var(--glow-primary);
+}
+
+.metric-tile--warning {
+  border-color: rgba(255, 180, 77, 0.2);
+}
+
+.metric-tile--critical {
+  border-color: rgba(255, 59, 59, 0.2);
+}
+
+.metric-tile__label {
+  font-family: var(--font-display);
+  font-size: var(--text-micro);
+  color: var(--on-surface-variant);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.metric-tile__value-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.metric-tile__value {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.metric-tile__unit {
+  font-family: var(--font-body);
+  font-size: var(--text-label-sm);
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+}
+
+.metric-tile__trend {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.06em;
+}
+
+.metric-tile__trend--up { color: var(--color-stable); }
+.metric-tile__trend--down { color: var(--color-critical); }

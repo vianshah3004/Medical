@@ -1,0 +1,55 @@
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-4);
+  position: relative;
+  z-index: 10;
+}
+
+.login-page__content {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(5, 7, 10, 0.85); /* Deep dark background */
+  backdrop-filter: blur(10px);
+  padding: 3rem 2.5rem;
+}
+
+.auth-main-tabs .main-tab {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  color: var(--on-surface-variant) !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  font-family: var(--font-display);
+  font-size: var(--text-label-sm);
+}
+
+.auth-main-tabs .main-tab.active {
+  color: var(--primary) !important;
+  border-bottom: 2px solid var(--primary) !important;
+  box-shadow: 0 4px 10px -4px rgba(0,240,255,0.4) !important;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+.signup-tabs .tab-btn {
+  flex: 1;
+  font-size: 11px;
+  padding: 6px !important;
+  opacity: 0.6;
+}
+
+.signup-tabs .tab-btn.active {
+  opacity: 1;
+  border-color: var(--primary-fixed-dim) !important;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2) !important;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

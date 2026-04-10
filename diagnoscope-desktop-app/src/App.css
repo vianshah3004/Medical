@@ -1,0 +1,27 @@
+/* ── TopBar Nav Tabs (inline in App layout) ── */
+.topbar-nav {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.topbar-nav__tab {
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-label-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  border-bottom: 1px solid transparent;
+}
+
+.topbar-nav__tab:hover {
+  color: var(--primary);
+  border-bottom-color: rgba(0, 240, 255, 0.3);
+}
+
+.topbar-nav__tab:first-child {
+  color: var(--primary);
+  border-bottom-color: var(--primary-container);
+}

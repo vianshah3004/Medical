@@ -1,0 +1,15 @@
+fastapi>=0.115.0,<1.0.0
+uvicorn[standard]>=0.30.0,<1.0.0
+python-multipart>=0.0.9
+pydantic>=2.0.0,<3.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+timm>=1.0.0
+pillow>=10.0.0
+numpy
+opencv-python
+ultralytics
+pydicom
+grad-cam
+reportlab
+scikit-image

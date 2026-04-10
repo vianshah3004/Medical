@@ -1,0 +1,114 @@
+.doc-verify {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.doc-verify__header h1 {
+  margin-bottom: var(--space-1);
+}
+
+.doc-verify__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.doc-verify__card {
+  display: grid;
+  grid-template-columns: 80px 1fr 200px;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.doc-verify__avatar {
+  width: 64px;
+  height: 64px;
+  background: var(--surface-container-high);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid var(--outline-variant);
+}
+
+.doc-verify__avatar .material-symbols-outlined {
+  font-size: 32px;
+  color: var(--primary-fixed-dim);
+}
+
+.doc-verify__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.doc-verify__name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.doc-verify__name-row h2 {
+  margin: 0;
+}
+
+.doc-verify__bio-section { display: flex; flex-direction: column; gap: var(--space-3); }
+.doc-verify__bio-section h4 { margin-bottom: var(--space-1); }
+
+.doc-verify__bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.doc-verify__bio-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.doc-verify__bio-item span:last-child {
+  color: var(--on-surface);
+  font-size: var(--text-body-sm);
+}
+
+.doc-verify__bio-item--full {
+  grid-column: 1 / -1;
+}
+
+.doc-verify__credential { display: flex; flex-direction: column; gap: var(--space-2); }
+
+.doc-verify__credential-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--surface-container);
+  border: 0.5px solid var(--outline-variant);
+}
+
+.doc-verify__credential-box .material-symbols-outlined {
+  color: var(--primary-fixed-dim);
+  font-size: 20px;
+}
+
+.doc-verify__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.doc-verify__actions h4 {
+  margin-bottom: var(--space-1);
+}
+
+@media (max-width: 900px) {
+  .doc-verify__card {
+    grid-template-columns: 1fr;
+  }
+  .doc-verify__avatar { display: none; }
+  .doc-verify__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

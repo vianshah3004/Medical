@@ -1,0 +1,316 @@
+/* ═══════════════════════════════════════════════
+   ScanView — Main Diagnostic Interface
+   ═══════════════════════════════════════════════ */
+
+.scan-view {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: var(--space-6);
+  height: 100%;
+  min-height: 0;
+}
+
+/* ── Left: Viewer ── */
+.scan-view__viewer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.scan-view__image-area {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--surface-container-lowest);
+  border: 0.5px solid var(--outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.scan-view__image-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--outline);
+}
+
+.scan-view__image-placeholder .material-symbols-outlined {
+  font-size: 64px;
+  opacity: 0.3;
+}
+
+.scan-view__coords {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  display: flex;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--primary-fixed-dim);
+  opacity: 0.7;
+}
+
+.scan-view__window-info {
+  position: absolute;
+  bottom: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--on-surface-variant);
+  opacity: 0.5;
+}
+
+.scan-view__meta-row {
+  display: flex;
+  gap: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 0.5px solid var(--outline-variant);
+  flex-wrap: wrap;
+}
+
+.scan-view__controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.scan-view__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.scan-view__filter-btn {
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface-container);
+  border: 0.5px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  font-family: var(--font-display);
+  font-size: var(--text-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.scan-view__filter-btn:hover {
+  border-color: rgba(0, 240, 255, 0.2);
+  color: var(--primary);
+}
+
+.scan-view__filter-btn--active {
+  border-color: var(--primary-container);
+  color: var(--primary);
+  background: rgba(0, 240, 255, 0.06);
+  box-shadow: var(--glow-primary);
+}
+
+/* ── Right: Panel ── */
+.scan-view__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  overflow-y: auto;
+  max-height: calc(100vh - 108px);
+  padding-right: var(--space-2);
+}
+
+.scan-view__patient-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-3);
+}
+
+.scan-view__patient-name {
+  font-size: var(--text-headline-lg);
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.scan-view__target {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.scan-view__target-text {
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  color: var(--color-critical);
+  letter-spacing: 0.04em;
+}
+
+.scan-view__metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.scan-view__diagnosis {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.scan-view__diagnosis-text {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md);
+  color: var(--color-critical);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.scan-view__aspects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.scan-view__aspects-item {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-container);
+  border: 0.5px solid var(--outline-variant);
+  font-family: var(--font-mono);
+  font-size: var(--text-label-sm);
+  color: var(--on-surface-variant);
+}
+
+.scan-view__aspects-item--alert {
+  border-color: rgba(255, 59, 59, 0.3);
+  color: var(--color-critical);
+  background: rgba(255, 59, 59, 0.06);
+}
+
+.scan-view__insights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.scan-view__rec-text {
+  font-family: var(--font-body);
+  font-size: var(--text-body-md);
+  color: var(--on-surface);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.scan-view__rec-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .scan-view {
+    grid-template-columns: 1fr;
+  }
+  .scan-view__panel {
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .scan-view__metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .scan-view__controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scanview__file-header {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.18);
+  color: var(--primary);
+  font-family: var(--font-mono);
+}
+
+.scanview__controls-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0.8rem 0.9rem;
+}
+
+.scanview__control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 220px;
+  color: var(--on-surface-variant);
+}
+
+.scanview__control input[type='range'] {
+  flex: 1;
+}
+
+.scanview__icon-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.scanview__icon-btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+  background: transparent;
+  cursor: pointer;
+}
+
+.scanview__icon-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.scanview__visual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.scanview__visual-card {
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.scanview__visual-title {
+  padding: 0.55rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--primary);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.12);
+}
+
+.scanview__visual-image {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+@media (max-width: 1080px) {
+  .scanview__visual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scanview__control {
+    min-width: 100%;
+  }
+}
