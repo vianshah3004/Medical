@@ -18,4 +18,5 @@ generated_reports/
 # Env
 .venv/
 venv/
-.env
+.env.DS_Store
+**/.DS_Store
